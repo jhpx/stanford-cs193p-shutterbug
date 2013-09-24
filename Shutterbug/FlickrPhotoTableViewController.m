@@ -30,7 +30,7 @@
             self.photos = photos;
         });
     });
-    dispatch_release(downloadQueue);
+    //    dispatch_release(downloadQueue);
 }
 
 - (void)setPhotos:(NSArray *)photos
