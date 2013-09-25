@@ -64,9 +64,9 @@
     }
     
     // Configure the cell...
-    NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-    cell.textLabel.text = [photo objectForKey:FLICKR_PHOTO_TITLE];
-    cell.detailTextLabel.text = [photo objectForKey:FLICKR_PHOTO_OWNER];
+    NSDictionary *photo = (self.photos)[indexPath.row];
+    cell.textLabel.text = photo[FLICKR_PHOTO_TITLE];
+    cell.detailTextLabel.text = photo[FLICKR_PHOTO_OWNER];
     
     return cell;
 }
