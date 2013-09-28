@@ -22,7 +22,7 @@
 
 - (NSString *)title
 {
-    return [self.photo objectForKey:FLICKR_PHOTO_TITLE];
+    return (self.photo)[FLICKR_PHOTO_TITLE];
 }
 
 - (NSString *)subtitle
@@ -33,8 +33,8 @@
 - (CLLocationCoordinate2D)coordinate
 {
     CLLocationCoordinate2D coordinate;
-    coordinate.latitude = [[self.photo objectForKey:FLICKR_LATITUDE] doubleValue];
-    coordinate.longitude = [[self.photo objectForKey:FLICKR_LONGITUDE] doubleValue];
+    coordinate.latitude = [(self.photo)[FLICKR_LATITUDE] doubleValue];
+    coordinate.longitude = [(self.photo)[FLICKR_LONGITUDE] doubleValue];
     return coordinate;
 }
 

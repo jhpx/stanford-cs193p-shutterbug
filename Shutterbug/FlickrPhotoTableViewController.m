@@ -22,11 +22,11 @@
 {
     NSMutableDictionary *photosByPhotographer = [NSMutableDictionary dictionary];
     for (NSDictionary *photo in self.photos) {
-        NSString *photographer = [photo objectForKey:FLICKR_PHOTO_OWNER];
-        NSMutableArray *photos = [photosByPhotographer objectForKey:photographer];
+        NSString *photographer = photo[FLICKR_PHOTO_OWNER];
+        NSMutableArray *photos = photosByPhotographer[photographer];
         if (!photos) {
             photos = [NSMutableArray array];
-            [photosByPhotographer setObject:photos forKey:photographer];
+            photosByPhotographer[photographer] = photos;
         }
         [photos addObject:photo];
     }
@@ -96,7 +96,7 @@
 
 - (NSString *)photographerForSection:(NSInteger)section
 {
-    return [[self.photosByPhotographer allKeys] objectAtIndex:section];
+    return [self.photosByPhotographer allKeys][section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -113,7 +113,7 @@
 {
 //    return [self.photos count];
     NSString *photographer = [self photographerForSection:section];
-    NSArray *photosByPhotographer = [self.photosByPhotographer objectForKey:photographer];
+    NSArray *photosByPhotographer = (self.photosByPhotographer)[photographer];
     return [photosByPhotographer count];
 }
 
@@ -129,8 +129,8 @@
     // Configure the cell...
     //NSDictionary *photo = (self.photos)[indexPath.row];
     NSString *photographer = [self photographerForSection:indexPath.section];
-    NSArray *photosByPhotographer = [self.photosByPhotographer objectForKey:photographer];
-    NSDictionary *photo = [photosByPhotographer objectAtIndex:indexPath.row];
+    NSArray *photosByPhotographer = (self.photosByPhotographer)[photographer];
+    NSDictionary *photo = photosByPhotographer[indexPath.row];
     cell.textLabel.text = photo[FLICKR_PHOTO_TITLE];
     cell.detailTextLabel.text = photo[FLICKR_PHOTO_OWNER];
     
