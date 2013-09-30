@@ -84,8 +84,6 @@
 		5EC1A76C17F1E488005E40D9 = {
 			isa = PBXGroup;
 			children = (
-				5E97A65B17F729D200142FFB /* MapKit.framework */,
-				5E97A65917F729C900142FFB /* CoreLocation.framework */,
 				5EC1A77E17F1E488005E40D9 /* Shutterbug */,
 				5EC1A77717F1E488005E40D9 /* Frameworks */,
 				5EC1A77617F1E488005E40D9 /* Products */,
@@ -103,6 +101,8 @@
 		5EC1A77717F1E488005E40D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E97A65917F729C900142FFB /* CoreLocation.framework */,
+				5E97A65B17F729D200142FFB /* MapKit.framework */,
 				5EC1A77817F1E488005E40D9 /* UIKit.framework */,
 				5EC1A77A17F1E488005E40D9 /* Foundation.framework */,
 				5EC1A77C17F1E488005E40D9 /* CoreGraphics.framework */,
